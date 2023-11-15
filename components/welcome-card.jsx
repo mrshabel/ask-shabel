@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function WelcomeCard() {
   return (
-    <Card className="max-w-[500px] ">
+    <Card>
       <CardHeader>
         <CardTitle>Welcome to Ask Shabel Chatbot</CardTitle>
         <CardDescription>
