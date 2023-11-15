@@ -1,9 +1,9 @@
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Ask Shabel",
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>
+        <body className={raleway.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
