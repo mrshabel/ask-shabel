@@ -20,7 +20,7 @@ export default function WelcomeCard() {
       <CardContent>
         <div className="flex items-center gap-2">
           <MoveRight />
-          <Link href="/" className="hover:underline-offset-2">
+          <Link href="/chat" className="hover:underline-offset-2">
             Object Oriented Programming
           </Link>
         </div>
