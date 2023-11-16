@@ -1,5 +1,10 @@
 "use client";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+  AlertCircle,
+} from "@/components/ui/alert";
 
 export default function Error({ error, reset }) {
   return (
