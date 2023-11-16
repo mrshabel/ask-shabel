@@ -2,26 +2,41 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useUser } from "@clerk/nextjs";
 import { useChat } from "ai/react";
-import { CornerDownLeft, Crown, User } from "lucide-react";
+import { CornerDownLeft, Crown, Loader, User } from "lucide-react";
 import React from "react";
+import { nameInitials } from "@/lib/utils";
 
 export default function ChatForm() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
-    api: "/api/chat",
-  });
+  const { messages, input, handleInputChange, handleSubmit, isLoading } =
+    useChat({
+      api: "/api/chat",
+    });
 
+  const { isSignedIn, user } = useUser();
   console.log(messages);
-
   return (
     <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch ">
       <ul>
         {messages.map((m, index) => (
-          <li key={index} className="my-1">
+          <li key={index} className="my-3">
             {m.role === "user" ? (
               <>
-                <div className="grid grid-cols-[2.5rem_1fr] gap-2">
-                  <User className="w-5 h-5" />
+                <div className="grid grid-cols-[3rem_1fr] gap-2">
+                  {isSignedIn && user?.imageUrl ? (
+                    <>
+                      <Avatar className="w-5 h-5">
+                        <AvatarImage src={user.imageUrl} />
+                        <AvatarFallback>
+                          {nameInitials(user.fullName)}
+                        </AvatarFallback>
+                      </Avatar>
+                    </>
+                  ) : (
+                    <User className="w-5 h-5" />
+                  )}
                   <div className="col-span-1">
                     <p>{m.content}</p>
                   </div>
@@ -69,10 +84,15 @@ export default function ChatForm() {
         <Button
           type="submit"
           variant="outline"
+          disabled={isLoading}
           size="icon"
           className="flex-shrink-0 dark:bg-violet-600"
         >
-          <CornerDownLeft className="h-4 w-4" />
+          {isLoading ? (
+            <Loader className="h-4 w-4 animate-spin " />
+          ) : (
+            <CornerDownLeft className="h-4 w-4" />
+          )}
         </Button>
       </form>
     </div>
