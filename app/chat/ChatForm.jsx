@@ -27,7 +27,7 @@ export default function ChatForm() {
                 <div className="grid grid-cols-[3rem_1fr] gap-2">
                   {isSignedIn && user?.imageUrl ? (
                     <>
-                      <Avatar className="w-5 h-5">
+                      <Avatar className="w-7 h-7">
                         <AvatarImage src={user.imageUrl} />
                         <AvatarFallback>
                           {nameInitials(user.fullName)}
@@ -35,7 +35,7 @@ export default function ChatForm() {
                       </Avatar>
                     </>
                   ) : (
-                    <User className="w-5 h-5" />
+                    <User className="w-7 h-7" />
                   )}
                   <div className="col-span-1">
                     <p>{m.content}</p>
@@ -45,7 +45,7 @@ export default function ChatForm() {
                 <div
                   data-orientation="horizontal"
                   role="none"
-                  class="shrink-0 bg-border h-[1px] w-full my-4 md:my-8"
+                  className="shrink-0 bg-border h-[1px] w-full my-4 md:my-8"
                 ></div>
               </>
             ) : (
@@ -62,7 +62,7 @@ export default function ChatForm() {
                 <div
                   data-orientation="horizontal"
                   role="none"
-                  class="shrink-0 bg-border h-[1px] w-full my-4 md:my-8"
+                  className="shrink-0 bg-border h-[1px] w-full my-4 md:my-8"
                 ></div>
               </>
             )}

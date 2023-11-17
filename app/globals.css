@@ -76,9 +76,8 @@
 }
 
 .nav-container {
-  /* background: #12121233; */
-  /* backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px); */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 /* loader */
