@@ -4,7 +4,9 @@ export default function layout({ children }) {
   return (
     <main>
       <Navbar />
-      {children}
+      <main className="px-6 w-full overflow-hidden flex justify-center">
+        {children}
+      </main>
     </main>
   );
 }

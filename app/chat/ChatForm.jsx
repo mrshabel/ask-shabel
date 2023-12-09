@@ -18,8 +18,8 @@ export default function ChatForm() {
   const { isSignedIn, user } = useUser();
   console.log(messages);
   return (
-    <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch ">
-      <ul>
+    <>
+      <ul className="w-full max-w-md py-24">
         {messages.map((m, index) => (
           <li key={index} className="my-3">
             {m.role === "user" ? (
@@ -72,7 +72,7 @@ export default function ChatForm() {
 
       <form
         onSubmit={handleSubmit}
-        className="space-x-2 m-5 w-full flex items-center fixed bottom-0"
+        className="space-x-2 my-5 px-2 w-full max-w-md mx-auto flex items-center fixed inset-x-0 bottom-0"
       >
         <Input
           className=" w-full max-w-md"
@@ -95,6 +95,6 @@ export default function ChatForm() {
           )}
         </Button>
       </form>
-    </div>
+    </>
   );
 }
